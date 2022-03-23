@@ -1,0 +1,40 @@
+#pragma once
+#include<string>
+using namespace std;
+
+/********* 错误类型 *********/
+const int _MATRIX_COLUMN_ERR = 1;			/* 矩阵列数不匹配 */
+const int _MATRIX_CHAR_ERR = 2;				/* 矩阵出现非法字符 */
+const int _MATRIX_RBRACKET_ERR = 3;			/* 矩阵右括号缺失 */
+const int _NUMBER_ZERO_ERR = 4;				/* 整数以零开头错误 */
+const int _UNKNOWN_SYMBOL_ERR = 5;			/* 未知符号错误 */
+/****************************/
+
+class Error {
+private:
+	int errRow;
+	int errCol;
+	int errType;
+	string errContent;
+public:
+	Error(int t);
+	Error(int t, string ctnt);
+	Error(int r, int c, int t);
+	Error(int r, int c, int t, string ctnt);
+	void what();
+private:
+	// 打印错误位置信息
+	void errPrint();
+
+	// 矩阵列数不匹配
+	void matColErr();
+	// 矩阵中包含非法字符
+	void matCharErr();
+	// 矩阵中右括号不匹配
+	void matBracketErr();
+	
+	// 整数以零开头
+	void numZeroErr();
+	// 未知符号
+	void unknownSymbol();
+};
