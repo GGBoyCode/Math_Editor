@@ -4,7 +4,7 @@
 using namespace std;
 
 // ¶¨Òå½áÊø·û
-const int ACC = 26;
+const int ACC = 28;
 
 typedef struct symbol {
 	char ch;

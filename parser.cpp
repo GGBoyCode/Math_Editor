@@ -15,7 +15,7 @@ stack<int> stateStack;
 stack<symbol> symbolStack;
 
 // 退栈个数
-int popSize[] = { 1, 1, 2, 1, 3, 3, 3, 3, 3, 3, 3, 2, 3, 1 };
+int popSize[] = { 1, 3, 2, 1, 3, 3, 3, 3, 3, 3, 3, 2, 3, 1 };
 char nTers[] = { 'T', 'S', 'S', 'A', 'A', 'Q', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' };
 
 symbol getch();		/* 获取符号 */
