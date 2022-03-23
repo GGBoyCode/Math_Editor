@@ -42,3 +42,6 @@ typedef struct word {
     int tokenId;
     wordContent val;
 }word;
+
+/* 函数声明 */
+string quotationMarksChar(char c);		/* 将字符'c'变为被单引号引起的字符串"\'c\'" */

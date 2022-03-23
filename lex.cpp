@@ -11,7 +11,6 @@ word uWord;		/* 单词 */
 string keyWords[5] = { "while", "if", "else", "for", "end" };
 
 /* 函数声明 */
-string quotationMarksChar(char c);		/* 将字符'c'变为被单引号引起的字符串"\'c\'" */
 bool isDigit(char ch);					/* 判断是否为数字 */
 bool isLetter(char ch);					/* 判断是否为字母 */
 void doStart();							/* 开始识别第一个字母 */
@@ -34,15 +33,11 @@ void doColon();							/* 识别分号 */
 void printWord();						/* 打印单词 */
 void doEOF();							/* 打印结束符 */
 
-string quotationMarksChar(char c) {
-	return string("\'\'").insert(1, string(1, c));
-}
-
 void read() {
 	int len = source.length();
 	locate = locateStart = 0;
 	row = column = 1;
-	while (1 || source[locate] != _SYN_EOF) {
+	while (source[locate] != _SYN_EOF) {
 		scan();
 	}
 }
