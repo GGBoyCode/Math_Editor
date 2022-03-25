@@ -22,12 +22,19 @@ void readActionTable();
 void readGotoTable();
 
 int main() {
-	readSourceFile();
+	/*readSourceFile();
 	readActionTable();
-	readGotoTable();
+	readGotoTable();*/
 	try {
-		cout << "*****************************" << endl;
-		LRPaser();
+		//cout << "*****************************" << endl;
+		//LRPaser();
+		Number N1("9.999999"), N2("9.999999"), N3("9.999999");
+		N1.setSign(false);
+		N2.setSign(false);
+		N3.setSign(false);
+		Number N4 = N2 + N1;
+		Number N5 = N3 + N4;
+		cout << N5;
 	}
 	catch (Error e) {
 		e.what();

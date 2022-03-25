@@ -1,5 +1,6 @@
 #pragma once
 #include"matrix.h"
+#include"number.h"
 #include"error.h"
 #include"lex.h"
 #include"globals.h"

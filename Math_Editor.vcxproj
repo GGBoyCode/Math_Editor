@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="error.cpp" />
+    <ClCompile Include="globals.cpp" />
     <ClCompile Include="lex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="number.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="vartab.cpp" />
   </ItemGroup>
@@ -152,6 +154,7 @@
     <ClInclude Include="lex.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="matrix.h" />
+    <ClInclude Include="number.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="vartab.h" />
   </ItemGroup>
