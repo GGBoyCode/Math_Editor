@@ -76,44 +76,111 @@ Number operator-(Number& N1, Number& N2) {
 }
 
 Number operator*(Number& N1, Number& N2) {
-	int len1 = N1.decimalLength + N1.decimalLength;
-	int len2 = N1.decimalLength + N1.decimalLength;
+	int len1 = N1.integerLength + N1.decimalLength;
+	int len2 = N2.integerLength + N2.decimalLength;
 	string num = "0";
 
+	// 将小数点抹去，看作大整数相乘
 	for (int i = len2; i >= 0; i--) {
 		if (i != N2.pointPos) {
 			string n;
-			for (int j = len1; j >= 0; j--) {
-				if (j != N1.pointPos) {
-					int digit = (N1.number[j] - '0') * (N2.number[i] - '0') + Number::iflag;
-					Number::iflag = digit / 10;
-					digit %= 10;
-					n = char(digit + '0') + n;
+			// 若当前乘数为零，则n=0
+			if (N2.number[i] == '0') {
+				n = "0";
+			}// 若当前乘数不为零，则计算n
+			else {
+				for (int j = len1; j >= 0; j--) {
+					if (j != N1.pointPos) {
+						int digit = (N1.number[j] - '0') * (N2.number[i] - '0') + Number::iflag;
+						Number::iflag = digit / 10;
+						digit %= 10;
+						n = char(digit + '0') + n;
+					}
 				}
-			}
-			// 进位符不为零
-			if (Number::iflag) {
-				n = char(Number::iflag + '0') + n;
-				Number::iflag = 0;				
-			}
+
+				// 进位符不为零
+				if (Number::iflag) {
+					n = char(Number::iflag + '0') + n;
+					Number::iflag = 0;
+				}
+			}			
 
 			// 乘10
 			if (num != "0") num += '0';
 
 			// 相加
-			Number N1(num), N2(n);
-			num = add(N1, N2);
+			Number n1(num), n2(n);
+			num = add(n1, n2);
 		}
 	}
-	return Number("0");
+
+	// 添加小数点
+	num.insert(num.end() - N1.decimalLength - N2.decimalLength, '.');
+
+	return Number(num, !(N1.sign ^ N2.sign));
 }
 
 Number operator/(Number& N1, Number& N2) {
-	return Number("0");
+	string num;
+
+	// 补零处理
+	int len = max(N1.decimalLength, N2.decimalLength);
+	N1.addZero(len), N2.addZero(len);
+
+	// 小数位数
+	int decimal = 0;
+	// 将小数去除小数点变为大整数
+	string num1 = N1.number.erase(N1.number.find("."));
+	string num2 = N2.number.erase(N2.number.find("."));
+	int len1 = num1.length();
+	int len2 = num2.length();
+
+	string n;
+	// 指向num1补数位置的指针
+	int index = len2;
+	// 小数计算开始标志
+	bool flag = false;
+
+	// 记录当前与num2相除的数n
+	if (len1 > len2) {
+		n = num1.substr(0, len2);
+	}
+	else {
+		n = num1;
+	}
+
+	while (n != "0" && decimal != Number::figure) {
+		len = n.size();
+		
+		Number n2(num2);
+		int i = 0;
+		// 将数n减至小于数num2
+		while (len > len2 || n >= num2) {
+			i++;
+			Number n1(n);
+			n = reduce(n1, n2);
+			len = n.size();
+		}
+		num += char(i + '0');
+
+		// 判断是否是小数部分
+		if (flag) decimal++;
+
+		// 计算整数部分
+		if (len1 > index) {
+			n += N1.number[index];
+			index++;
+		}// 补零操作，开始计算小数部分
+		else {
+			n += '0';
+			if (!flag && n != "0") { num += '.'; flag = true; }
+		}
+	}
+
+	return Number(num, !(N1.sign ^ N2.sign));
 }
 
 ostream& operator<<(ostream& cout, Number& N) {
-	N.addZero(Number::figure);
 	if (!N.sign) cout << "-";
 	cout << N.number;
 	return cout;
@@ -143,7 +210,8 @@ string add(Number& N1, Number& N2) {
 		num = char(digit) + num;
 	}
 
-	num = '.' + num;
+	// 若不为整数则加小数点
+	if (len != 0) num = '.' + num;
 
 	// 整数部分相同位长度
 	len = max(N1.integerLength, N2.integerLength);
@@ -185,7 +253,8 @@ string reduce(Number& N1, Number& N2) {
 		num = char(digit + '0') + num;
 	}
 
-	num = '.' + num;
+	// 若不为整数则加小数点
+	if(len != 0) num = '.' + num;
 
 	// 整数部分处理
 	// 记录前缀零

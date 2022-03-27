@@ -5,7 +5,7 @@
 using namespace std;
 
 // 默认小数位数
-const int DEFAULT_FIGURE = 6;
+const int DEFAULT_FIGURE = 18;
 
 class Number {
 public:

@@ -28,13 +28,11 @@ int main() {
 	try {
 		//cout << "*****************************" << endl;
 		//LRPaser();
-		Number N1("9.999999"), N2("9.999999"), N3("9.999999");
-		N1.setSign(false);
-		N2.setSign(false);
-		N3.setSign(false);
-		Number N4 = N2 + N1;
-		Number N5 = N3 + N4;
-		cout << N5;
+		Number N1("99"), N2("999999"), N3("9.999999");
+		//N2.setSign(false);
+		//Number::figure = 12;
+		Number N4 = N1 / N2;
+		cout << N4;
 	}
 	catch (Error e) {
 		e.what();
