@@ -12,6 +12,7 @@ void Error::what() {
 	case _MATRIX_CHAR_ERR: matCharErr(); break;
 	case _MATRIX_RBRACKET_ERR: matBracketErr(); break;
 	case _NUMBER_ZERO_ERR: numZeroErr(); break;
+	case _NEED_INTEGER_ERR: needInteger(); break;
 	case _UNKNOWN_SYMBOL_ERR: unknownSymbol(); break;
 	}
 	exit(1);
@@ -42,6 +43,11 @@ void Error::matBracketErr() {
 void Error::numZeroErr() {
 	errPrint();
 	cout << _NUMBER_ZERO_ERR << ": Integer cannot start with zero." << endl;
+}
+
+void Error::needInteger() {
+	errPrint();
+	cout << _NEED_INTEGER_ERR << ": The operation need integer." << endl;
 }
 
 void Error::unknownSymbol() {

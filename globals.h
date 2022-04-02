@@ -40,7 +40,7 @@ union wordContent {
 
 typedef struct word {
     int tokenId;
-    wordContent val;
+    union wordContent val;
 }word;
 
 /* º¯ÊıÉùÃ÷ */

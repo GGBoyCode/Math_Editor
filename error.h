@@ -5,12 +5,15 @@ using namespace std;
 /********* 错误类型 *********/
 const int _UNKNOWN_SYMBOL_ERR = 101;			/* 未知符号错误 */
 
+/* 矩阵类型错误 */
 const int _MATRIX_COLUMN_ERR = 201;				/* 矩阵列数不匹配 */
 const int _MATRIX_CHAR_ERR = 202;				/* 矩阵出现非法字符 */
 const int _MATRIX_RBRACKET_ERR = 203;			/* 矩阵右括号缺失 */
 
+/* 常数类型错误 */
 const int _NUMBER_ZERO_ERR = 301;				/* 整数以零开头错误 */
 const int _NOT_A_NUMBER_ERR = 302;				/* 不是数字 */
+const int _NEED_INTEGER_ERR = 303;				/* 运算需要整数 */
 /****************************/
 
 class Error {
@@ -40,6 +43,8 @@ private:
 	void numZeroErr();
 	// 不是一个数
 	void notANumberErr();
+	// 需要整数
+	void needInteger();
 
 	// 未知符号
 	void unknownSymbol();

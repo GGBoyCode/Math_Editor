@@ -28,11 +28,14 @@ int main() {
 	try {
 		//cout << "*****************************" << endl;
 		//LRPaser();
-		Number N1("99"), N2("999999"), N3("9.999999");
-		//N2.setSign(false);
+		Number N1("21.9"), N2("3.14"), N3("9.999999");
+		N2.setSign(false);
 		//Number::figure = 12;
-		Number N4 = N1 / N2;
-		cout << N4;
+		//Number N4 = N1 + N3;
+		//N1.floor();
+
+		Number N = N1.pow(N2);
+		cout << N;
 	}
 	catch (Error e) {
 		e.what();
