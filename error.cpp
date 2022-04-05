@@ -12,8 +12,11 @@ void Error::what() {
 	case _MATRIX_CHAR_ERR: matCharErr(); break;
 	case _MATRIX_RBRACKET_ERR: matBracketErr(); break;
 	case _NUMBER_ZERO_ERR: numZeroErr(); break;
+	case _NOT_A_NUMBER_ERR: numZeroErr(); break;
 	case _NEED_INTEGER_ERR: needInteger(); break;
 	case _UNKNOWN_SYMBOL_ERR: unknownSymbol(); break;
+	case _UNKNOWN_WORD_ERR: unknownWord(); break;
+	case _TYPE_ERR: typeErr(); break;
 	}
 	exit(1);
 }
@@ -45,6 +48,11 @@ void Error::numZeroErr() {
 	cout << _NUMBER_ZERO_ERR << ": Integer cannot start with zero." << endl;
 }
 
+void Error::notANumberErr() {
+	errPrint();
+	cout << _NOT_A_NUMBER_ERR << ": "+ errContent + " Not a number." << endl;
+}
+
 void Error::needInteger() {
 	errPrint();
 	cout << _NEED_INTEGER_ERR << ": The operation need integer." << endl;
@@ -53,4 +61,14 @@ void Error::needInteger() {
 void Error::unknownSymbol() {
 	errPrint();
 	cout << _UNKNOWN_SYMBOL_ERR << ": Unknown symbol " << errContent << "." << endl;
+}
+
+void Error::unknownWord() {
+	errPrint();
+	cout << _UNKNOWN_WORD_ERR << ": \"" + errContent + "\" is a unknown word." << endl;
+}
+
+void Error::typeErr() {
+	errPrint();
+	cout << _TYPE_ERR << ": Type is not same." << endl;
 }

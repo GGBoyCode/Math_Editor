@@ -3,6 +3,7 @@
 #include<map>
 #include<vector>
 #include<string>
+#include"number.h"
 #include"matrix.h"
 using namespace std;
 
@@ -33,9 +34,9 @@ const int _SYN_EOF = -1;                 /* ½áÊø·û */
 
 union wordContent {
     char sym;
-    string *name;
-    string *num;
-    Matrix *mat;
+    Matrix* mat;
+    string* name;
+    Number* num;
 };
 
 typedef struct word {

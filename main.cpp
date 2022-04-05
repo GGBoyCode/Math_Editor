@@ -13,6 +13,8 @@ vector<vector<int>> action;
 map<char, int> Vn;
 // goto表
 vector<vector<int>> go;
+// 符号表
+Table table;
 
 // 读取源文件
 void readSourceFile();
@@ -22,20 +24,17 @@ void readActionTable();
 void readGotoTable();
 
 int main() {
-	/*readSourceFile();
+	readSourceFile();
 	readActionTable();
-	readGotoTable();*/
+	readGotoTable();
 	try {
-		//cout << "*****************************" << endl;
-		//LRPaser();
-		Number N1("21.9"), N2("3.14"), N3("9.999999");
+		LRPaser();
+		table.printTable();
+		/*Number N1("21.9"), N2("3.14"), N3("9.999999");
 		N2.setSign(false);
-		//Number::figure = 12;
-		//Number N4 = N1 + N3;
-		//N1.floor();
 
 		Number N = N1.pow(N2);
-		cout << N;
+		cout << N;*/
 	}
 	catch (Error e) {
 		e.what();
@@ -83,12 +82,12 @@ void readActionTable() {
 		action.push_back(temp);
 	}
 
-	for (int i = 0; i < action.size(); i++) {
-		for (int j = 0; j < size; j++) {
-			cout << action[i][j] << "\t";
-		}
-		cout << endl;
-	}
+	//for (int i = 0; i < action.size(); i++) {
+	//	for (int j = 0; j < size; j++) {
+	//		cout << action[i][j] << "\t";
+	//	}
+	//	cout << endl;
+	//}
 
 	in.close();
 }
@@ -119,12 +118,12 @@ void readGotoTable() {
 		go.push_back(temp);
 	}
 
-	for (int i = 0; i < go.size(); i++) {
+	/*for (int i = 0; i < go.size(); i++) {
 		for (int j = 0; j < size; j++) {
 			cout << go[i][j] << "\t";
 		}
 		cout << endl;
-	}
+	}*/
 
 	in.close();
 }

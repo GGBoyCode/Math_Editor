@@ -1,5 +1,6 @@
 #pragma once
 #include"lex.h"
+#include"vartab.h"
 #include<stack>
 using namespace std;
 

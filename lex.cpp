@@ -3,10 +3,10 @@
 using namespace std;
 
 extern string source;	/* 资源文件 */
-int row,		/* 行号 */
-column,			/* 列号 */
-locate,			/* 下一个字符下标 */
-locateStart;	/* 下一个单词开始位置 */
+int row = 1,		/* 行号 */
+column = 1,			/* 列号 */
+locate = 0,			/* 下一个字符下标 */
+locateStart = 0;	/* 下一个单词开始位置 */
 word uWord;		/* 单词 */
 string keyWords[5] = { "while", "if", "else", "for", "end" };
 
@@ -159,7 +159,7 @@ void doNum() {
 	// 种别码记为常数
 	uWord.tokenId = _SYN_NUM;
 	// 获取常数内容
-	uWord.val.num = new string(source.substr(locateStart, locate - locateStart));
+	uWord.val.num = new Number(source.substr(locateStart, locate - locateStart));
 }
 
 void doMat() {

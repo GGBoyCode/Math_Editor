@@ -32,7 +32,7 @@ void Table::updateWord(variable var, int key) {
 
 void Table::insertWord(variable var, int key) {
 	variable* ptr = findWord(var.name, key);
-	// 若表中没有当前变量则添加变量到表中， 否则不做操作
+	// 若表中没有当前变量则添加变量到表中
 	if (!ptr) {
 		ptr = new variable(var.name, var.val, var.type);
 		variable* last = tab[key];
@@ -43,6 +43,9 @@ void Table::insertWord(variable var, int key) {
 		else {
 			tab[key] = ptr;
 		}
+	}
+	else {
+		updateWord(var, key);
 	}
 }
 
@@ -58,5 +61,22 @@ void Table::deleteWord(string name, int key) {
 			p->next = ptr->next;
 		}
 		delete ptr;
+	}
+}
+
+void Table::printTable() {
+	for (int i = 0; i < MAXSIZE; i++) {
+		variable* ptr = tab[i];		 
+		while (ptr) {
+			if (ptr->type == _SYN_NUM) {
+				cout << ptr->name << "=" << (* ptr->val.num).toString() << endl;
+			}
+			else {
+				cout << ptr->name << "=" << endl;
+				(*ptr->val.mat).print();
+				cout << endl;
+			}
+			ptr = ptr->next;
+		}		 
 	}
 }

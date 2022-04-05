@@ -1,5 +1,5 @@
 #include"number.h"
-
+#include"globals.h"
 // 小数位数为默认位数
 int Number::figure = DEFAULT_FIGURE;
 // 初始化进位与退位标志
@@ -12,6 +12,7 @@ Number term(Number T, Number X, Number N);
 // 添加小数点
 string addPoint(string num, int point);
 
+Number::Number() : number(), sign(), integerLength(), decimalLength(), pointPos() {}
 Number::Number(string number, bool sign) :sign(sign) {
 	setNumber(number);
 }
@@ -197,8 +198,9 @@ Number operator%(Number N1, Number N2) {
 	return n1;
 }
 
-Number operator^(Number& N1, Number& N2) {
-	return Number("");
+Number operator^(Number N1, Number N2) {
+	Number ans = N1.pow(N2);
+	return ans;
 }
 
 ostream& operator<<(ostream& cout, Number& N) {
@@ -484,6 +486,15 @@ void Number::setNumber(string number) {
 // 获取数字串
 string Number::getNumber() {
 	return number;
+}
+// 打印数值
+string Number::toString() {
+	if (getSign()) {
+		return number;
+	}
+	else {
+		return "-" + number;
+	}
 }
 // 获取符号
 bool Number::getSign() {

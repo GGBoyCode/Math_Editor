@@ -5,3 +5,4 @@
 #include"lex.h"
 #include"globals.h"
 #include"parser.h"
+#include"vartab.h"

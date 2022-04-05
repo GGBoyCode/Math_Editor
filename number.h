@@ -1,7 +1,5 @@
 #pragma once
 #include"error.h"
-#include"globals.h"
-#include<string>
 using namespace std;
 
 // 默认小数位数
@@ -27,6 +25,7 @@ private:
 	string getBigNumber();
 public:
 	// 构造函数, 符号默认为正号
+	Number();
 	Number(string number, bool sign = true);
 
 	// 幂
@@ -59,6 +58,8 @@ public:
 	string getNumber();
 	// 获取符号
 	bool getSign();
+	// 打印数值
+	string toString();
 
 	// 静态函数
 	static void judgeIflag(int &digit);

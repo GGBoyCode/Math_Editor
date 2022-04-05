@@ -2,9 +2,6 @@
 #include<string>
 #include"globals.h"
 
-const int _TYPE_NUMBER = 1;		/* 数字类型 */
-const int _TYPE_MATRIX = 2;		/* 矩阵类型 */
-
 const int  MAXSIZE = 255;		/* 数组大小 */
 
 typedef struct variable {
@@ -30,4 +27,7 @@ public:
 	void deleteWord(string name, int key);
 	// 获取字符串的hash值
 	int getKey(string name);
+
+	// 遍历TBALE
+	void printTable();
 };
