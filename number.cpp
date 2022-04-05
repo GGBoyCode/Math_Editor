@@ -487,15 +487,6 @@ void Number::setNumber(string number) {
 string Number::getNumber() {
 	return number;
 }
-// 打印数值
-string Number::toString() {
-	if (getSign()) {
-		return number;
-	}
-	else {
-		return "-" + number;
-	}
-}
 // 获取符号
 bool Number::getSign() {
 	return sign;

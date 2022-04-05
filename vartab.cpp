@@ -69,7 +69,7 @@ void Table::printTable() {
 		variable* ptr = tab[i];		 
 		while (ptr) {
 			if (ptr->type == _SYN_NUM) {
-				cout << ptr->name << "=" << (* ptr->val.num).toString() << endl;
+				cout << ptr->name << "=" << (* ptr->val.num) << endl;
 			}
 			else {
 				cout << ptr->name << "=" << endl;

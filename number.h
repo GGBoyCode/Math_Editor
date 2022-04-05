@@ -58,8 +58,6 @@ public:
 	string getNumber();
 	// 获取符号
 	bool getSign();
-	// 打印数值
-	string toString();
 
 	// 静态函数
 	static void judgeIflag(int &digit);

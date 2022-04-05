@@ -2,6 +2,7 @@
 #include<string>
 #include<iostream>
 #include<vector>
+#include"Number.h"
 using namespace std;
 
 class Matrix {
@@ -9,7 +10,7 @@ private:
 	int row;
 	int col;
 	int size;
-	vector<string> content;
+	vector<Number> content;
 public:
 	// ¹¹Ôì¾ØÕó
 	Matrix(string mat);

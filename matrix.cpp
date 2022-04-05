@@ -3,7 +3,7 @@
 
 Matrix::Matrix(string mat) {
 	size = col = row = 0;
-	content = vector<string>();
+	content = vector<Number>();
 	int column = 0;
 	int len = mat.length();	
 	int index = 0, pIndex = 0;
@@ -22,7 +22,7 @@ Matrix::Matrix(string mat) {
 				column = 0;
 			}
 
-			content.push_back(mat.substr(pIndex, index - pIndex));
+			content.push_back(Number(mat.substr(pIndex, index - pIndex)));
 			pIndex = index + 1;
 		}
 
@@ -31,7 +31,7 @@ Matrix::Matrix(string mat) {
 	
 	// 将最后一个数添加进入矩阵
 	if (pIndex < index) { 
-		content.push_back(mat.substr(pIndex, index - pIndex));
+		content.push_back(Number(mat.substr(pIndex, index - pIndex)));
 		column++;
 	}
 	// 检查各行列数是和否相同，若不同则抛出错误
