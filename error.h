@@ -12,6 +12,8 @@ const int _MATRIX_COLUMN_ERR = 201;				/* 矩阵列数不匹配 */
 const int _MATRIX_CHAR_ERR = 202;				/* 矩阵出现非法字符 */
 const int _MATRIX_RBRACKET_ERR = 203;			/* 矩阵右括号缺失 */
 const int _MATRIX_SIZE_MISMATCH_ERR = 204;		/* 矩阵大小不匹配 */
+const int _MATRIX_MUT_ERR = 205;				/* 矩阵乘法错误 */
+const int _NON_SQUARE_MATRIX_ERR = 206;			/* 不是方阵错误 */
 
 /* 常数类型错误 */
 const int _NUMBER_ZERO_ERR = 301;				/* 整数以零开头错误 */
@@ -44,6 +46,10 @@ private:
 	void matBracketErr();
 	// 矩阵大小不匹配
 	void matSizeMismatch();
+	// 矩阵乘法错误
+	void matMutErr();
+	// 非方矩阵错误
+	void nonSquareMat();
 	
 	// 整数以零开头
 	void numZeroErr();

@@ -440,7 +440,7 @@ void Number::floor() {
 // 添零
 void Number::addZero(int len) {
 	// 若小数部分位数为0
-	if (!decimalLength) { number += '.'; }
+	if (!decimalLength && len > 0) { number += '.'; }
 	for (int i = decimalLength; i < len; i++) {
 		number += '0';
 	}

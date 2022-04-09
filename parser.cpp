@@ -157,14 +157,25 @@ word operation(word uWord1, word uWord2, char oper) {
 			ans.val.num = num;
 		}
 		else {
-			Matrix* mat = new Matrix(uWord1.val.mat->getRowSize(), uWord1.val.mat->getColSize());
+			Matrix* mat = new Matrix(uWord1.val.mat->getRowSize(), uWord2.val.mat->getColSize());
 			switch (oper) {
 			case '+': *mat = *uWord1.val.mat + *uWord2.val.mat; break;
 			case '-': *mat = *uWord1.val.mat - *uWord2.val.mat; break;
+			case '*': *mat = *uWord1.val.mat * *uWord2.val.mat; break;
 			}
 			ans.val.mat = mat;
 		}
 		
+	}
+	else if (uWord1.tokenId == _SYN_MAT && uWord2.tokenId == _SYN_NUM) {
+		ans.tokenId = _SYN_MAT;
+		Matrix* mat = new Matrix(uWord1.val.mat->getRowSize(), uWord1.val.mat->getColSize());
+		switch (oper) {
+		case '*': *mat = *uWord1.val.mat * *uWord2.val.num; break;
+		case '/': *mat = *uWord1.val.mat / *uWord2.val.num; break;
+		case '^': *mat = *uWord1.val.mat ^ *uWord2.val.num; break;
+		}
+		ans.val.mat = mat;
 	}// ·ñÔòÅ×³ö´íÎó
 	else {
 		throw Error(row, column, _TYPE_ERR);

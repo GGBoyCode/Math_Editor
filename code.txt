@@ -1,3 +1,11 @@
+num = 3;
+num1 = 6 / num;
+mat = [1,2;3,4];
 mat1 = [1,2,3;5,6,7];
-mat2 = [1,2,3,4,5,6];
-var = mat1 + mat2;
+mat2 = mat1 * num;
+mat3 = mat1 / num;
+mat4 = mat ^ num;
+mat5 = [1,2;3,4;5,6];
+mat6 = mat1 * mat5;
+mat7 = mat2 + mat3;
+mat8 = mat4 - mat6;

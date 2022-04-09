@@ -12,9 +12,13 @@ void Error::what() {
 	case _MATRIX_CHAR_ERR: matCharErr(); break;
 	case _MATRIX_RBRACKET_ERR: matBracketErr(); break;
 	case _MATRIX_SIZE_MISMATCH_ERR: matSizeMismatch(); break;
+	case _MATRIX_MUT_ERR: matMutErr(); break;
+	case _NON_SQUARE_MATRIX_ERR: nonSquareMat(); break;
+
 	case _NUMBER_ZERO_ERR: numZeroErr(); break;
 	case _NOT_A_NUMBER_ERR: numZeroErr(); break;
 	case _NEED_INTEGER_ERR: needInteger(); break;
+
 	case _UNKNOWN_SYMBOL_ERR: unknownSymbol(); break;
 	case _UNKNOWN_WORD_ERR: unknownWord(); break;
 	case _TYPE_ERR: typeErr(); break;
@@ -47,6 +51,16 @@ void Error::matBracketErr() {
 void Error::matSizeMismatch() {
 	errPrint();
 	cout << _MATRIX_SIZE_MISMATCH_ERR << ": Matrix size mismatch." << endl;
+}
+
+void Error::matMutErr() {
+	errPrint();
+	cout << _MATRIX_MUT_ERR << ": rows and columns must match in matrix multiplication.";
+}
+
+void Error::nonSquareMat() {
+	errPrint();
+	cout << _NON_SQUARE_MATRIX_ERR << ": The Matrix is not square matrix" << endl;
 }
 
 void Error::numZeroErr() {
