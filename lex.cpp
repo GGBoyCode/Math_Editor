@@ -44,7 +44,7 @@ void read() {
 
 void scan() {
 	doStart();
-	printWord();
+	//printWord();
 }
 
 void doStart() {

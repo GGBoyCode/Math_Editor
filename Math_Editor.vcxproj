@@ -162,6 +162,7 @@
     <Text Include="action.txt" />
     <Text Include="code.txt" />
     <Text Include="goto.txt" />
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

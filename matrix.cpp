@@ -38,6 +38,9 @@ Matrix::Matrix(string mat) {
 	if (col != column) throw Error(_MATRIX_COLUMN_ERR);
 	size = content.size();
 }
+Matrix::Matrix(int row, int col) :row(row), col(col),size(row * col) {
+	content = vector<Number>(size);
+}
 
 int Matrix::getRowSize() {
 	return row;
@@ -61,4 +64,33 @@ void Matrix::print() {
 		if (i != row - 1) cout << "; ";
 	}
 	cout << "]";
+}
+
+
+Matrix operator+(Matrix M1, Matrix M2) {
+	// 抛出错误
+	if (M1.size != M2.size) throw Error(_MATRIX_SIZE_MISMATCH_ERR);
+
+	Matrix ans(M1.row, M1.col);
+
+	// 加法计算
+	for (int i = 0; i < M1.size; i++) {
+		ans.content[i] = M1.content[i] + M2.content[i];
+	}
+
+	return ans;
+}
+
+Matrix operator-(Matrix M1, Matrix M2) {
+	// 抛出错误
+	if (M1.size != M2.size) throw Error(_MATRIX_SIZE_MISMATCH_ERR);
+
+	Matrix ans(M1.row, M1.col);
+
+	// 加法计算
+	for (int i = 0; i < M1.size; i++) {
+		ans.content[i] = M1.content[i] - M2.content[i];
+	}
+
+	return ans;
 }

@@ -1,0 +1,7 @@
+num1 = 20, num2 = 3.1415,num3 = 1.9;
+num4 = num1 + num2 * num3;
+num5 = num3 - num1 / num2;
+num6 = num3^num1 + num4 - num5;
+mat1 = [1,2,3;5,6,7];
+mat2 = [1.34,2.96,3.34;5.64,6.23,7.19];
+mat1 = mat2 + mat2 - mat1;

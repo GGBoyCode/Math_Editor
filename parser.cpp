@@ -156,6 +156,14 @@ word operation(word uWord1, word uWord2, char oper) {
 			}
 			ans.val.num = num;
 		}
+		else {
+			Matrix* mat = new Matrix(uWord1.val.mat->getRowSize(), uWord1.val.mat->getColSize());
+			switch (oper) {
+			case '+': *mat = *uWord1.val.mat + *uWord2.val.mat; break;
+			case '-': *mat = *uWord1.val.mat - *uWord2.val.mat; break;
+			}
+			ans.val.mat = mat;
+		}
 		
 	}// ·ñÔòÅ×³ö´íÎó
 	else {

@@ -76,5 +76,8 @@
     <Text Include="goto.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="test.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ void Error::what() {
 	case _MATRIX_COLUMN_ERR: matColErr(); break;
 	case _MATRIX_CHAR_ERR: matCharErr(); break;
 	case _MATRIX_RBRACKET_ERR: matBracketErr(); break;
+	case _MATRIX_SIZE_MISMATCH_ERR: matSizeMismatch(); break;
 	case _NUMBER_ZERO_ERR: numZeroErr(); break;
 	case _NOT_A_NUMBER_ERR: numZeroErr(); break;
 	case _NEED_INTEGER_ERR: needInteger(); break;
@@ -41,6 +42,11 @@ void Error::matCharErr() {
 void Error::matBracketErr() {
 	errPrint();
 	cout << _MATRIX_RBRACKET_ERR << ": Missing right bracket of matrix." << endl;
+}
+
+void Error::matSizeMismatch() {
+	errPrint();
+	cout << _MATRIX_SIZE_MISMATCH_ERR << ": Matrix size mismatch." << endl;
 }
 
 void Error::numZeroErr() {
